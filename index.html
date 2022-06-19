@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .calculator {
+            display: flex;
+            flex-direction: column;
+            width: 300px;
+            justify-content: space-around;
+            height: 300px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="calculator">
+        <h1>Калькулятор</h1>
+
+        <input type="text" class="input1" id="number1" value="введите первое число">
+        <input type="text" class="input2" id="number2" value="введите второе число">
+        <div id="result"></div>
+        <button onclick="showSumm()">Сложить</button>
+        <button onclick="showSubtr()">Вычесть</button>
+        <button onclick="showMult()">Умножить</button>
+        <button onclick="showDevis()">Разделить</button>
+    </div>
+
+    <script>
+        class Calculator {
+            constructor(a, b) {
+                this.a = a
+                this.b = b
+            }
+            static Summ(a, b) {
+                let c = a + b;
+                return c
+            }
+            static Subtr(a, b) {
+                let c = a - b;
+                return c
+            }
+            static Mult(a, b) {
+                let c = a * b;
+                return c
+            }
+            static Divis(a, b) {
+                let c = a / b;
+                return c
+            }
+        }
+
+
+
+        const firstNum = document.querySelector('#number1');
+        const secondNum = document.querySelector('#number2');
+        const result = document.querySelector('#result');
+
+        function showSumm() {
+            let a = firstNum.value;
+            let b = secondNum.value;
+            let c = +a + +b;
+            c.innerHTML = result;
+            result.append(c);
+        };
+
+        function showSubtr() {
+            let a = firstNum.value;
+            let b = secondNum.value;
+            let c = a - b;
+            c.innerHTML = result;
+            result.append(c);
+        };
+
+        function showMult() {
+            let a = firstNum.value;
+            let b = secondNum.value;
+            let c = a * b;
+            c.innerHTML = result;
+            result.append(c);
+        };
+
+        function showDevis() {
+            let a = firstNum.value;
+            let b = secondNum.value;
+
+            if (b == 0) {
+                alert('На 0 делить нельзя!');
+            } else {
+                let c = a / b;
+                c.innerHTML = result;
+                result.append(c);
+            };
+        };
+    </script>
+</body>
+
+</html>
